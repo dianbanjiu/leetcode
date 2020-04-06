@@ -1,19 +1,22 @@
 package src
 
-import (
-	"sort"
-)
-
 func TopKFrequent(nums []int, k int) []int {
-	var r = make([]int, k)
-	sort.Ints(nums)
-	r[0] = nums[0]
-	j := 1
-	for i := 1; i < len(nums) && j < k; i++ {
-		if r[j-1] != nums[i] {
-			r[j] = nums[i]
-			j++
-		}
+	var cases = make(map[int]int)
+	for i := 0; i < len(nums); i++ {
+		cases[nums[i]] += 1
 	}
-	return r
+
+	var ans = make([]int, k)
+	for i := 0; i < k; i++ {
+		max := 0
+		for k, v := range cases {
+			if v > cases[max] {
+				max = k
+			}
+		}
+
+		ans[i] = max
+		delete(cases, max)
+	}
+	return ans
 }
