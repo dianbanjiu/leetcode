@@ -1,4 +1,4 @@
-package perday
+package nowcoder
 
 // nowcoder title: 数组中重复的数字
 // url: https://www.nowcoder.com/practice/6fe361ede7e54db1b84adc81d09d8524?tpId=13&tqId=11203&tab=answerKey&from=cyc_github
