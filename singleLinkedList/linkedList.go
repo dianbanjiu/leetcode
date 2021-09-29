@@ -34,3 +34,21 @@ func createSingleCircleLinkedList(data []int) *Node {
 
 	return root
 }
+
+// reverse 链表反转
+func reverse(head *Node) *Node {
+	if head == nil {
+		return nil
+	}
+
+	next := head.Next
+	head.Next = nil
+	for next !=nil{
+		ptmp := next.Next
+		next.Next = head
+		head = next
+		next = ptmp
+	}
+
+	return head
+}
