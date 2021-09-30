@@ -52,3 +52,35 @@ func reverse(head *Node) *Node {
 
 	return head
 }
+
+// printSingleLinkedList 打印链表
+func printSingleLinkedList(head *Node){
+	next := head
+	for next !=nil {
+		fmt.Println(next.Val)
+		next = next.Next
+	}
+}
+
+// circleCheck 检测环状链表
+func circleCheck(head *Node) bool {
+	if head == nil || head.Next == nil || head.Next.Next == nil {
+		return false
+	}
+
+	slow := head
+	fast := head.Next.Next
+	for slow!=nil && fast!=nil {
+		if slow == fast {
+			return true
+		}
+		slow = slow.Next
+		if fast.Next!=nil {
+			fast = fast.Next.Next
+		}else {
+			fast = nil
+		}
+	}
+
+	return false
+}
