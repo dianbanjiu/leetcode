@@ -84,3 +84,45 @@ func circleCheck(head *Node) bool {
 
 	return false
 }
+
+
+// GetSingleLinkedListLen 获取链表长度
+func GetSingleLinkedListLen(head *Node) int {
+	var listLen int
+	for head != nil {
+		listLen++
+		head = head.Next
+	}
+	
+	return listLen
+}
+
+// RemoveNthNode 移除链表中倒数第 n 个节点
+func RemoveNthNode(head *Node, n int) *Node {
+	listLen := GetSingleLinkedListLen(head)
+	// 排除异常情况
+	if head == nil || listLen <= n ||n <0{
+		return head
+	}
+
+	// 头节点特殊处理
+	if n == 0 {
+		return head.Next
+	}
+
+	// 找到待删除节点的前一个节点
+	next := head
+	count := 1
+	for next!=nil {
+		if count!=n {
+			next = next.Next
+			count++
+			continue
+		}
+		next.Next = next.Next.Next
+		break
+
+	}
+
+	return head
+}
