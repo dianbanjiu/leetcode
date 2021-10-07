@@ -128,3 +128,18 @@ func RemoveNthNode(head *Node, n int) *Node {
 
 	return head
 }
+
+// FindMiddle 寻找链表的中间节点
+func FindMiddle(head *Node) int {
+	if head == nil {
+		return -1
+	}
+
+	fastNode, slowNode := head, head
+	for fastNode != nil && fastNode.Next != nil {
+		slowNode = slowNode.Next
+		fastNode = fastNode.Next.Next
+	}
+
+	return slowNode.Val
+}
