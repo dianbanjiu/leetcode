@@ -1,7 +1,9 @@
 package singleLinkedList
 
+import "fmt"
+
 type Node struct {
-	Val int
+	Val  int
 	Next *Node
 }
 
@@ -13,21 +15,22 @@ func createSingleLinkedList(data []int) *Node {
 	var root = new(Node)
 	root.Val = data[0]
 	temp := root
-	for i := 1; i< len(data); i++ {
+	for i := 1; i < len(data); i++ {
 		temp.Next = &Node{Val: data[i]}
 		temp = temp.Next
 	}
 
 	return root
 }
+
 // createSingleCircleLinkedList 根据给定的数组创建环状单链表
 func createSingleCircleLinkedList(data []int) *Node {
 	root := createSingleLinkedList(data)
-	if root==nil {
+	if root == nil {
 		return nil
 	}
 	temp := root
-	for temp.Next !=nil {
+	for temp.Next != nil {
 		temp = temp.Next
 	}
 	temp.Next = root
@@ -43,7 +46,7 @@ func reverse(head *Node) *Node {
 
 	next := head.Next
 	head.Next = nil
-	for next !=nil{
+	for next != nil {
 		ptmp := next.Next
 		next.Next = head
 		head = next
@@ -54,9 +57,9 @@ func reverse(head *Node) *Node {
 }
 
 // printSingleLinkedList 打印链表
-func printSingleLinkedList(head *Node){
+func printSingleLinkedList(head *Node) {
 	next := head
-	for next !=nil {
+	for next != nil {
 		fmt.Println(next.Val)
 		next = next.Next
 	}
@@ -70,21 +73,20 @@ func circleCheck(head *Node) bool {
 
 	slow := head
 	fast := head.Next.Next
-	for slow!=nil && fast!=nil {
+	for slow != nil && fast != nil {
 		if slow == fast {
 			return true
 		}
 		slow = slow.Next
-		if fast.Next!=nil {
+		if fast.Next != nil {
 			fast = fast.Next.Next
-		}else {
+		} else {
 			fast = nil
 		}
 	}
 
 	return false
 }
-
 
 // GetSingleLinkedListLen 获取链表长度
 func GetSingleLinkedListLen(head *Node) int {
@@ -93,7 +95,7 @@ func GetSingleLinkedListLen(head *Node) int {
 		listLen++
 		head = head.Next
 	}
-	
+
 	return listLen
 }
 
@@ -101,7 +103,7 @@ func GetSingleLinkedListLen(head *Node) int {
 func RemoveNthNode(head *Node, n int) *Node {
 	listLen := GetSingleLinkedListLen(head)
 	// 排除异常情况
-	if head == nil || listLen <= n ||n <0{
+	if head == nil || listLen <= n || n < 0 {
 		return head
 	}
 
@@ -113,8 +115,8 @@ func RemoveNthNode(head *Node, n int) *Node {
 	// 找到待删除节点的前一个节点
 	next := head
 	count := 1
-	for next!=nil {
-		if count!=n {
+	for next != nil {
+		if count != n {
 			next = next.Next
 			count++
 			continue
