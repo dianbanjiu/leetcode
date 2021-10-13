@@ -1,4 +1,5 @@
 package src
+
 func LastRemaining(n int, m int) int {
 	//var list = make([]int,n)
 	//for i := 0; i < n; i++ {
@@ -15,5 +16,5 @@ func LastRemaining(n int, m int) int {
 		return 0
 	}
 
-	return (LastRemaining(n-1,m)+m)%n
+	return (LastRemaining(n-1, m) + m) % n
 }

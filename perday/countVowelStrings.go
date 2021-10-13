@@ -4,12 +4,12 @@ package perday
 // leetcode-cn url: https://leetcode-cn.com/problems/count-sorted-vowel-strings/
 
 func CountVowelStrings(n int) int {
-	var result = []int{1,1,1,1,1}
+	var result = []int{1, 1, 1, 1, 1}
 	for i := 1; i < n; i++ {
-		for j := 1;j < 5; j++{
+		for j := 1; j < 5; j++ {
 			result[j] += result[j-1]
 		}
 	}
-	
-	return result[0]+result[1]+result[2]+result[3]+result[4]
+
+	return result[0] + result[1] + result[2] + result[3] + result[4]
 }

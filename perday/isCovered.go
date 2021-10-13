@@ -7,16 +7,16 @@ func IsCovered(ranges [][]int, left int, right int) bool {
 		if r[0] <= left && r[1] >= left {
 			left = r[1]
 			changed = true
-		}	
+		}
 		if r[0] <= right && r[1] >= right {
 			right = r[0]
 			changed = true
 		}
 
-		if right <= left && changed{
+		if right <= left && changed {
 			return true
 		}
 	}
-	
+
 	return false
 }

@@ -5,7 +5,7 @@ package perday
 func NumIdenticalPairs(nums []int) int {
 	var count int
 	for i, num := range nums {
-		for j := i+1; j < len(nums); j++ {
+		for j := i + 1; j < len(nums); j++ {
 			if num == nums[j] {
 				count++
 			}
@@ -23,7 +23,7 @@ func numIdenticalPairs(nums []int) int {
 
 	var result int
 	for _, count := range numMap {
-		result +=count*(count-1)/2
+		result += count * (count - 1) / 2
 	}
 	return result
 }

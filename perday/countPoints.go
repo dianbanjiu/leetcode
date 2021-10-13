@@ -6,10 +6,10 @@ package perday
 func CountPoints(points [][]int, queries [][]int) []int {
 	var result = make([]int, len(queries))
 	for i, query := range queries {
-		r2 := query[2]*query[2]
+		r2 := query[2] * query[2]
 		var count int
 		for _, point := range points {
-			baseFlag := (point[1]-query[1])*(point[1]-query[1])+(point[0]-query[0])*(point[0]-query[0])<=r2
+			baseFlag := (point[1]-query[1])*(point[1]-query[1])+(point[0]-query[0])*(point[0]-query[0]) <= r2
 			if baseFlag {
 				count++
 			}

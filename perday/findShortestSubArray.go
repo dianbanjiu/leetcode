@@ -5,9 +5,9 @@ package perday
 
 func FindShortestSubArray(nums []int) int {
 	type degreeInfo struct {
-		degree int
+		degree     int
 		arrayStart int
-		arrayEnd int
+		arrayEnd   int
 	}
 
 	var numsMap = make(map[int]degreeInfo)
@@ -18,23 +18,22 @@ func FindShortestSubArray(nums []int) int {
 		var arrayStart, arrayEnd int
 		if degree == 1 {
 			arrayStart = numsIndex
-		}else {
+		} else {
 			arrayStart = numsMap[num].arrayStart
 		}
 		arrayEnd = numsIndex
 
-		isShort := (numsMap[maxNum].arrayEnd-numsMap[maxNum].arrayStart - (arrayEnd - arrayStart))>0
-		if degree > numsMap[maxNum].degree||(degree == numsMap[maxNum].degree&&isShort){
+		isShort := (numsMap[maxNum].arrayEnd - numsMap[maxNum].arrayStart - (arrayEnd - arrayStart)) > 0
+		if degree > numsMap[maxNum].degree || (degree == numsMap[maxNum].degree && isShort) {
 			maxNum = num
 		}
 
 		numsMap[num] = degreeInfo{
-			degree: degree,
+			degree:     degree,
 			arrayStart: arrayStart,
-			arrayEnd: arrayEnd,
+			arrayEnd:   arrayEnd,
 		}
 	}
 
-
-	return numsMap[maxNum].arrayEnd-numsMap[maxNum].arrayStart+1
+	return numsMap[maxNum].arrayEnd - numsMap[maxNum].arrayStart + 1
 }

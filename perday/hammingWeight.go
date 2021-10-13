@@ -8,7 +8,7 @@ func hammingWeight(num uint32) int {
 		if (num>>1)<<1 != num {
 			count++
 		}
-		num>>=1
+		num >>= 1
 	}
 	return count
 }

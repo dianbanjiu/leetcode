@@ -6,15 +6,15 @@ import (
 	"testing"
 )
 
-func TestMatrixReshape(t *testing.T)  {
-	var cases = []struct{
-		nums [][]int
-		r int
-		c int
+func TestMatrixReshape(t *testing.T) {
+	var cases = []struct {
+		nums   [][]int
+		r      int
+		c      int
 		except [][]int
 	}{
-		{[][]int{{1,2},{3,4}}, 1,4,[][]int{{1,2,3,4}}},
-		{[][]int{{1,2},{3,4}},2,4, [][]int{{1,2},{3,4}}},
+		{[][]int{{1, 2}, {3, 4}}, 1, 4, [][]int{{1, 2, 3, 4}}},
+		{[][]int{{1, 2}, {3, 4}}, 2, 4, [][]int{{1, 2}, {3, 4}}},
 	}
 
 	for _, s := range cases {

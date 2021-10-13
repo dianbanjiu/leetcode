@@ -25,13 +25,13 @@ func GetIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 
 // 哈希表法
-func getIntersectionNode2(headA, headB *ListNode) *ListNode{
+func getIntersectionNode2(headA, headB *ListNode) *ListNode {
 	var cases = make(map[interface{}]int)
 	for p := headA; p != nil; p = p.Next {
-		cases[p]=1
+		cases[p] = 1
 	}
 	for p := headB; p != nil; p = p.Next {
-		if _, ok := cases[p];ok {
+		if _, ok := cases[p]; ok {
 			return p
 		}
 	}
@@ -41,9 +41,13 @@ func getIntersectionNode2(headA, headB *ListNode) *ListNode{
 
 // 遍历
 func getIntersectionNode3(headA, headB *ListNode) *ListNode {
-	var la,lb int
-	for p:=headA;p!=nil;p=p.Next{la++}
-	for p:=headB;p!=nil;p=p.Next{lb++}
+	var la, lb int
+	for p := headA; p != nil; p = p.Next {
+		la++
+	}
+	for p := headB; p != nil; p = p.Next {
+		lb++
+	}
 
 	pa := headA
 	pb := headB
@@ -51,7 +55,7 @@ func getIntersectionNode3(headA, headB *ListNode) *ListNode {
 		for i := 0; i < la-lb; i++ {
 			pa = pa.Next
 		}
-	}else {
+	} else {
 		for i := 0; i < lb-la; i++ {
 			pb = pb.Next
 		}
@@ -62,7 +66,7 @@ func getIntersectionNode3(headA, headB *ListNode) *ListNode {
 			pa = pa.Next
 		}
 		if pb != nil {
-			pb=pb.Next
+			pb = pb.Next
 		}
 	}
 	return pa

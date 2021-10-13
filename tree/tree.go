@@ -1,8 +1,8 @@
 package tree
 
 type Node struct {
-	Val int
-	Left *Node
+	Val   int
+	Left  *Node
 	Right *Node
 }
 
@@ -44,5 +44,3 @@ func InOrderTraverse(root *Node) []int {
 	res = append(res, InOrderTraverse(root.Right)...)
 	return res
 }
-
-

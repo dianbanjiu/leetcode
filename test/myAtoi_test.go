@@ -6,8 +6,8 @@ import (
 )
 
 func TestMyAtoi(t *testing.T) {
-	var cases = []struct{
-		in string
+	var cases = []struct {
+		in     string
 		except int
 	}{
 		{"42", 42},

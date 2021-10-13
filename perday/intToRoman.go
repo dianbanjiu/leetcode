@@ -8,14 +8,14 @@ func IntToRoman(num int) string {
 	var romanList = "IVXLCDM"
 	for i := 1; num != 0; num /= 10 {
 		var s string
-		var n = num%10
+		var n = num % 10
 		switch n {
 		case 4:
-			s = string(romanList[i-1])+string(romanList[i])
+			s = string(romanList[i-1]) + string(romanList[i])
 		case 9:
-			s = string(romanList[i-1])+string(romanList[i+1])
+			s = string(romanList[i-1]) + string(romanList[i+1])
 		default:
-			if n>=5 {
+			if n >= 5 {
 				s += string(romanList[i])
 				n -= 5
 			}

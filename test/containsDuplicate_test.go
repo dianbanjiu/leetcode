@@ -15,7 +15,7 @@ func TestContainsDuplicate(t *testing.T) {
 		{[]int{1, 1}, true},
 		{[]int{1, 2}, false},
 		{[]int{1, 2, 1}, true},
-		{[]int{1,1,2}, true},
+		{[]int{1, 1, 2}, true},
 	}
 
 	for _, value := range caseTest {

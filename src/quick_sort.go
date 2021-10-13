@@ -5,11 +5,11 @@ func Sort(data []int) {
 }
 
 // Golang 版的快排
-func QuickSort(data []int, start, end int){
+func QuickSort(data []int, start, end int) {
 	if start >= end {
 		return
 	}
-	last := end-1
+	last := end - 1
 	for i := start; i < last; {
 		if data[i] > data[end] {
 			data[i], data[last] = data[last], data[i]
@@ -20,9 +20,9 @@ func QuickSort(data []int, start, end int){
 	}
 
 	if data[end] < data[last] {
-		data[end],data[last] = data[last], data[end]
-	}else{
-		data[end],data[last+1] = data[last+1], data[end]
+		data[end], data[last] = data[last], data[end]
+	} else {
+		data[end], data[last+1] = data[last+1], data[end]
 		last++
 	}
 	QuickSort(data, start, last-1)

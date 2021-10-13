@@ -9,7 +9,7 @@ func construct2DArray(original []int, m int, n int) [][]int {
 	var result = make([][]int, m)
 	var count = 0
 	for i := 0; i < m; i++ {
-		result[count] = original[i*n:(i+1)*n]
+		result[count] = original[i*n : (i+1)*n]
 		count++
 	}
 

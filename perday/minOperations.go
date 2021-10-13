@@ -19,9 +19,9 @@ func MinOperations(boxes string) []int {
 				continue
 			}
 
-			if box > answerIndex{
-				answers[answerIndex] += box-answerIndex
-			}else {
+			if box > answerIndex {
+				answers[answerIndex] += box - answerIndex
+			} else {
 				answers[answerIndex] += answerIndex - box
 			}
 		}

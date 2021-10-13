@@ -6,10 +6,10 @@ func TopKFrequent(words []string, k int) []string {
 		countMap[word]++
 	}
 	var result = make([]string, 0)
-	for key,_ := range countMap {
-        result = append(result, key)
+	for key, _ := range countMap {
+		result = append(result, key)
 	}
-	if k-len(result)<=0 {
+	if k-len(result) <= 0 {
 		result = result[:k]
 	}
 	return result

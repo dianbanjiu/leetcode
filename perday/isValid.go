@@ -1,6 +1,5 @@
 package perday
 
-
 // leetcode-cn number: 20. 有效的括号
 // leetcode-cn url: https://leetcode-cn.com/problems/valid-parentheses/
 func IsValid(s string) bool {

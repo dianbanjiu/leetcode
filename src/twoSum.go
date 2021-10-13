@@ -43,34 +43,34 @@ func TwoSum(nums []int, target int) []int {
 }
 
 // 给出n个骰子，计算所有可能出现点数和的概率
-func TwoSum2(n int)[]float64{
+func TwoSum2(n int) []float64 {
 	var cases = make([]int, 6)
 	for i := 0; i < 6; i++ {
-		cases[i] = i+1
+		cases[i] = i + 1
 	}
 
 	for i := 1; i < n; i++ {
-		clen:=len(cases)
+		clen := len(cases)
 		for j := 1; j <= 6; j++ {
 			for k := 0; k < clen; k++ {
 				cases = append(cases, cases[k]+j)
 			}
 		}
-		cases = cases[int(math.Pow(6,float64(i))):]
+		cases = cases[int(math.Pow(6, float64(i))):]
 	}
 
 	var ans = make([]float64, 0)
 	sort.Ints(cases)
-	i, j := 0,0
+	i, j := 0, 0
 	for j < len(cases) {
-		if cases[i]==cases[j] {
+		if cases[i] == cases[j] {
 			j++
-		}else {
-			p := float64(j-i)/float64(len(cases))
+		} else {
+			p := float64(j-i) / float64(len(cases))
 			ans = append(ans, p)
-			i,j = j, j+1
+			i, j = j, j+1
 		}
 	}
-	ans = append(ans,float64(j-i)/float64(len(cases)))
+	ans = append(ans, float64(j-i)/float64(len(cases)))
 	return ans
 }
