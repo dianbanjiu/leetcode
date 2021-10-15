@@ -38,3 +38,33 @@ func levelOrder(root *TreeNode) []int {
 	}
 	return result
 }
+
+// 剑指 Offer 32 - II. 从上到下打印二叉树 II
+func levelOrder2(root *TreeNode) [][]int {
+	if root == nil {
+		return nil
+	}
+
+	var result = make([][]int, 0)
+	var currentLevel = make([]*TreeNode, 0)
+	currentLevel = append(currentLevel, root)
+	for len(currentLevel) != 0 {
+		var nextLevel = make([]*TreeNode, 0)
+		var levelResult = make([]int, len(currentLevel))
+		for i, node := range currentLevel {
+			levelResult[i] = node.Val
+			if node.Left != nil {
+				nextLevel = append(nextLevel, node.Left)
+			}
+
+			if node.Right != nil {
+				nextLevel = append(nextLevel, node.Right)
+			}
+		}
+
+		currentLevel = nextLevel
+		result = append(result, levelResult)
+	}
+
+	return result
+}
