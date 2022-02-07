@@ -35,3 +35,29 @@ func maxDepthDfs(root *TreeNode) int {
 	}
 	return rightDepth + 1
 }
+
+type NAnyTreeNode struct {
+	Val      int
+	Children []*NAnyTreeNode
+}
+
+// leetcode-cn number: 559. N 叉树的最大深度
+// leetcode-cn url: https://leetcode-cn.com/problems/maximum-depth-of-n-ary-tree/
+func nAryTreeMaxDepth(root *NAnyTreeNode) int {
+	if root == nil {
+		return 0
+	}
+	var nodes = make([]*NAnyTreeNode, 0)
+	nodes = append(nodes, root)
+	var count int
+	for len(nodes) != 0 {
+		var temp = make([]*NAnyTreeNode, 0)
+		for _, node := range nodes {
+			if node != nil {
+				temp = append(temp, node.Children...)
+			}
+		}
+		nodes = temp
+	}
+	return count
+}
