@@ -41,3 +41,19 @@ func CountBits(num int) []int {
 
 	return result
 }
+
+//leetcode-cn number: 剑指 Offer II 003. 前 n 个数字二进制中 1 的个数
+// leetcode-cn url: https://leetcode-cn.com/problems/w3tCBm/
+func countBits(n int) []int {
+	var result = make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		temp := i
+		for temp != 0 {
+			if temp != temp>>1<<1 {
+				result[i]++
+			}
+			temp >>= 1
+		}
+	}
+	return result
+}
